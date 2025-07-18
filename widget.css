@@ -1,0 +1,317 @@
+:root {
+  --cister-clock-color: #8888ff;
+  --cister-clock-background: #00000088;
+  --cister-clock-background-hover: #000000;
+  --cister-clock-line-width: 3px;
+  --cister-clock-line-length: 40%;
+  --cister-clock-widget-size: 50px;
+  --cister-clock-widget-margin: 10px;
+}
+
+#cister-clock {
+  width: calc(var(--cister-clock-widget-size) + var(--cister-clock-widget-margin) * 2);
+  height: calc(var(--cister-clock-widget-size) + var(--cister-clock-widget-margin) * 2);
+  background-color: var(--cister-clock-background);
+  z-index: 100000;
+  position: fixed;
+  box-sizing: border-box;
+  top: 0;
+  right: 10px;
+  transition: background-color .5s ease-in-out;
+  border-radius: var(--cister-clock-widget-margin);
+}
+#cister-clock .container {
+  width: var(--cister-clock-widget-size);
+  height: var(--cister-clock-widget-size);
+  position: relative;
+  top: var(--cister-clock-widget-margin);
+  left: var(--cister-clock-widget-margin);
+}
+
+#cister-clock:hover {
+  background-color: var(--cister-clock-background-hover);
+}
+
+#cister-clock .base {
+  width: var(--cister-clock-widget-size);
+  height: var(--cister-clock-widget-size);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+#cister-clock .line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: var(--cister-clock-line-width);
+  height: 100%;
+  transform-origin: bottom center;
+  background-color: var(--cister-clock-color);
+  border-radius: var(--cister-clock-line-width);
+}
+
+#cister-clock .units .line,
+#cister-clock .tens .line,
+#cister-clock .hundreds .line,
+#cister-clock .thousands .line
+{
+  /* changing line base */
+  transition: all .5s ease-in-out;
+  height: var(--cister-clock-line-length);
+}
+
+#cister-clock .units-1 .section.a {
+  transform: rotate(90deg);
+  top: calc(var(--cister-clock-line-length) * -1);
+}
+#cister-clock .units-2 .section.a {
+  transform: rotate(90deg);
+}
+#cister-clock .units-3 .section.a {
+  transform: rotate(-45deg);
+  height: calc(var(--cister-clock-line-length) * 1.414);
+  left: calc(50% + var(--cister-clock-line-length));
+  top: calc(var(--cister-clock-line-length) * -0.414);
+}
+#cister-clock .units-4 .section.a {
+  transform: rotate(45deg);
+  height: calc(var(--cister-clock-line-length) * 1.414);
+  left: 50%;
+  top: calc(var(--cister-clock-line-length) * -0.414);
+}
+#cister-clock .units-5 .section.a {
+  transform: rotate(45deg);
+  height: calc(var(--cister-clock-line-length) * 1.414);
+  left: 50%;
+  top: calc(var(--cister-clock-line-length) * -0.414);
+}
+#cister-clock .units-5 .section.b {
+  transform: rotate(90deg);
+  top: calc(var(--cister-clock-line-length) * -1);
+}
+#cister-clock .units-6 .section.a {
+  left: calc(50% + var(--cister-clock-line-length));
+}
+#cister-clock .units-7 .section.a {
+  left: calc(50% + var(--cister-clock-line-length));
+}
+#cister-clock .units-7 .section.b {
+  transform: rotate(90deg);
+  top: calc(var(--cister-clock-line-length) * -1);
+}
+#cister-clock .units-8 .section.a {
+  left: calc(50% + var(--cister-clock-line-length));
+}
+#cister-clock .units-8 .section.b {
+  transform: rotate(90deg);
+}
+#cister-clock .units-9 .section.a {
+  left: calc(50% + var(--cister-clock-line-length));
+}
+#cister-clock .units-9 .section.b {
+  transform: rotate(90deg);
+}
+#cister-clock .units-9 .section.c {
+  transform: rotate(90deg);
+  top: calc(var(--cister-clock-line-length) * -1);
+}
+
+/* tens */
+
+#cister-clock .tens-1 .section.a {
+  transform: rotate(90deg);
+  top: calc(var(--cister-clock-line-length) * -1);
+  left: calc(50% - var(--cister-clock-line-length));
+}
+#cister-clock .tens-2 .section.a {
+  transform: rotate(90deg);
+  left: calc(50% - var(--cister-clock-line-length));
+}
+#cister-clock .tens-3 .section.a {
+  transform: rotate(45deg);
+  height: calc(var(--cister-clock-line-length) * 1.414);
+  top: calc(var(--cister-clock-line-length) * -0.414);
+  left: calc(50% - var(--cister-clock-line-length));
+}
+#cister-clock .tens-4 .section.a {
+  transform: rotate(-45deg);
+  height: calc(var(--cister-clock-line-length) * 1.414);
+  top: calc(var(--cister-clock-line-length) * -0.414);
+}
+#cister-clock .tens-5 .section.a {
+  transform: rotate(-45deg);
+  height: calc(var(--cister-clock-line-length) * 1.414);
+  top: calc(var(--cister-clock-line-length) * -0.414);
+}
+#cister-clock .tens-5 .section.b {
+  transform: rotate(90deg);
+  top: calc(var(--cister-clock-line-length) * -1);
+  left: calc(50% - var(--cister-clock-line-length));
+}
+#cister-clock .tens-6 .section.a {
+  left: calc(50% - var(--cister-clock-line-length));
+}
+#cister-clock .tens-7 .section.a {
+  left: calc(50% - var(--cister-clock-line-length));
+}
+#cister-clock .tens-7 .section.b {
+  transform: rotate(90deg);
+  top: calc(var(--cister-clock-line-length) * -1);
+  left: calc(50% - var(--cister-clock-line-length));
+}
+#cister-clock .tens-8 .section.a {
+  left: calc(50% - var(--cister-clock-line-length));
+}
+#cister-clock .tens-8 .section.b {
+  transform: rotate(90deg);
+  left: calc(50% - var(--cister-clock-line-length));
+}
+#cister-clock .tens-9 .section.a {
+  left: calc(50% - var(--cister-clock-line-length));
+}
+#cister-clock .tens-9 .section.b {
+  transform: rotate(90deg);
+  left: calc(50% - var(--cister-clock-line-length));
+}
+#cister-clock .tens-9 .section.c {
+  transform: rotate(90deg);
+  top: calc(var(--cister-clock-line-length) * -1);
+  left: calc(50% - var(--cister-clock-line-length));
+}
+
+/* hundreds */
+#cister-clock .hundreds-1 .section.a {
+  transform: rotate(90deg);
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length));
+}
+#cister-clock .hundreds-2 .section.a {
+  transform: rotate(90deg);
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length) * 2);
+}
+#cister-clock .hundreds-3 .section.a {
+  transform: rotate(45deg);
+  height: calc(var(--cister-clock-line-length) * 1.414);
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length) * 1.414);
+  left: 50%;
+}
+#cister-clock .hundreds-4 .section.a {
+  transform: rotate(-45deg);
+  height: calc(var(--cister-clock-line-length) * 1.414);
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length) * 1.414);
+  left: calc(50% + var(--cister-clock-line-length));
+}
+#cister-clock .hundreds-5 .section.a {
+  transform: rotate(-45deg);
+  height: calc(var(--cister-clock-line-length) * 1.414);
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length) * 1.414);
+  left: calc(50% + var(--cister-clock-line-length));
+}
+#cister-clock .hundreds-5 .section.b {
+  transform: rotate(90deg);
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length));
+}
+#cister-clock .hundreds-6 .section.a {
+  left: calc(50% + var(--cister-clock-line-length));
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length));
+}
+#cister-clock .hundreds-7 .section.a {
+  left: calc(50% + var(--cister-clock-line-length));
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length));
+}
+#cister-clock .hundreds-7 .section.b {
+  transform: rotate(90deg);
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length));
+}
+#cister-clock .hundreds-8 .section.a {
+  left: calc(50% + var(--cister-clock-line-length));
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length));
+}
+#cister-clock .hundreds-8 .section.b {
+  transform: rotate(90deg);
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length) * 2);
+}
+#cister-clock .hundreds-9 .section.a {
+  left: calc(50% + var(--cister-clock-line-length));
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length));
+}
+#cister-clock .hundreds-9 .section.b {
+  transform: rotate(90deg);
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length) * 2);
+}
+#cister-clock .hundreds-9 .section.c {
+  transform: rotate(90deg);
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length));
+}
+
+/* thousands */
+
+#cister-clock .thousands-1 .section.a {
+  transform: rotate(90deg);
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length));
+  left: calc(50% - var(--cister-clock-line-length));
+}
+#cister-clock .thousands-2 .section.a {
+  transform: rotate(90deg);
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length) * 2);
+  left: calc(50% - var(--cister-clock-line-length));
+}
+#cister-clock .thousands-3 .section.a {
+  transform: rotate(-45deg);
+  height: calc(var(--cister-clock-line-length) * 1.414);
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length) * 1.414);
+  left: 50%;
+}
+#cister-clock .thousands-4 .section.a {
+  transform: rotate(45deg);
+  height: calc(var(--cister-clock-line-length) * 1.414);
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length) * 1.414);
+  left: calc(50% - var(--cister-clock-line-length));
+}
+#cister-clock .thousands-5 .section.a {
+  transform: rotate(45deg);
+  height: calc(var(--cister-clock-line-length) * 1.414);
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length) * 1.414);
+  left: calc(50% - var(--cister-clock-line-length));
+}
+#cister-clock .thousands-5 .section.b {
+  transform: rotate(90deg);
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length));
+  left: calc(50% - var(--cister-clock-line-length));
+}
+#cister-clock .thousands-6 .section.a {
+  left: calc(50% - var(--cister-clock-line-length));
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length));
+}
+#cister-clock .thousands-7 .section.a {
+  left: calc(50% - var(--cister-clock-line-length));
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length));
+}
+#cister-clock .thousands-7 .section.b {
+  transform: rotate(90deg);
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length));
+  left: calc(50% - var(--cister-clock-line-length));
+}
+#cister-clock .thousands-8 .section.a {
+  left: calc(50% - var(--cister-clock-line-length));
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length));
+}
+#cister-clock .thousands-8 .section.b {
+  transform: rotate(90deg);
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length) * 2);
+  left: calc(50% - var(--cister-clock-line-length));
+}
+#cister-clock .thousands-9 .section.a {
+  left: calc(50% - var(--cister-clock-line-length));
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length));
+}
+#cister-clock .thousands-9 .section.b {
+  transform: rotate(90deg);
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length) * 2);
+  left: calc(50% - var(--cister-clock-line-length));
+}
+#cister-clock .thousands-9 .section.c {
+  transform: rotate(90deg);
+  top: calc(var(--cister-clock-widget-size) - var(--cister-clock-line-length));
+  left: calc(50% - var(--cister-clock-line-length));
+}
